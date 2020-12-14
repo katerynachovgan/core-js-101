@@ -203,8 +203,9 @@ function getTail(arr, n) {
  *    +'20,21,22,23,24\n'
  *    +'30,31,32,33,34'
  */
-function toCsvText(/* arr */) {
-  throw new Error('Not implemented');
+function toCsvText(arr) {
+  const result = arr.map((row) => row.join(',')).join('\n');
+  return result;
 }
 
 /**
@@ -218,8 +219,8 @@ function toCsvText(/* arr */) {
  *   [ 0, 1, 2, 3, 4, 5 ] => [ 0, 1, 4, 9, 16, 25 ]
  *   [ 10, 100, -1 ]      => [ 100, 10000, 1 ]
  */
-function toArrayOfSquares(/* arr */) {
-  throw new Error('Not implemented');
+function toArrayOfSquares(arr) {
+  return arr.map((x) => x ** 2);
 }
 
 
@@ -237,8 +238,14 @@ function toArrayOfSquares(/* arr */) {
  *   [ 0, 0, 0, 0, 0]         => [ 0, 0, 0, 0, 0]
  *   [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ] => [ 1, 3, 6, 10, 15, 21, 28, 36, 45, 55 ]
  */
-function getMovingSum(/* arr */) {
-  throw new Error('Not implemented');
+function getMovingSum(arr) {
+  const result = [];
+  const totalSum = arr.reduce((acc, item) => {
+    result.push(acc);
+    return acc + item;
+  });
+  result.push(totalSum);
+  return result;
 }
 
 /**
@@ -252,8 +259,15 @@ function getMovingSum(/* arr */) {
  * [ 'a', 'b', 'c' , null ]  => [ "b", null ]
  * [ "a" ] => []
  */
-function getSecondItems(/* arr */) {
-  throw new Error('Not implemented');
+function getSecondItems(arr) {
+  const result = [];
+  arr.map((el, i) => {
+    if (i % 2 !== 0) {
+      result.push(el);
+    }
+    return el;
+  });
+  return result;
 }
 
 
@@ -271,8 +285,16 @@ function getSecondItems(/* arr */) {
  *  [ 'a', 'b', 'c', null ] => [ 'a', 'b','b', 'c','c','c',  null,null,null,null ]
  *  [ 1,2,3,4,5 ] => [ 1, 2,2, 3,3,3, 4,4,4,4, 5,5,5,5,5 ]
  */
-function propagateItemsByPositionIndex(/* arr */) {
-  throw new Error('Not implemented');
+function propagateItemsByPositionIndex(arr) {
+  const result = [];
+  if (arr.length === 1 || arr.length === 0) return arr;
+  arr.map((el, ind) => {
+    const elArr = new Array(ind + 1);
+    elArr.fill(el);
+    result.push(elArr);
+    return el;
+  });
+  return result;
 }
 
 
