@@ -2,7 +2,7 @@
  *                                                                                           *
  * Plese read the following tutorial before implementing tasks:                              *
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Numbers_and_dates#Date_object
- * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date     *
+ * https://developer.mozil * hla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date     *
  *                                                                                           *
  ******************************************************************************************* */
 
@@ -74,8 +74,16 @@ function isLeapYear(date) {
  *    Date(2000,1,1,10,0,0),  Date(2000,1,1,10,0,0,250)     => "00:00:00.250"
  *    Date(2000,1,1,10,0,0),  Date(2000,1,1,15,20,10,453)   => "05:20:10.453"
  */
-function timeSpanToString(/* startDate, endDate */) {
-  throw new Error('Not implemented');
+function timeSpanToString(startDate, endDate) {
+  let hours = endDate.getHours() - startDate.getHours();
+  hours = (hours < 10) ? `0${hours}` : `${hours}`;
+  let minutes = endDate.getMinutes() - startDate.getMinutes();
+  minutes = (minutes < 10) ? `0${minutes}` : `${minutes}`;
+  let seconds = endDate.getSeconds() - startDate.getSeconds();
+  seconds = (seconds < 10) ? `0${seconds}` : `${seconds}`;
+  let miliseconds = endDate.getMilliseconds() - startDate.getMilliseconds();
+  miliseconds = (miliseconds < 10) ? `00${miliseconds}` : `${miliseconds}`;
+  return `${hours}:${minutes}:${seconds}.${miliseconds}`;
 }
 
 
